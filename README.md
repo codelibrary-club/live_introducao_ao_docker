@@ -26,9 +26,26 @@ Para rodar a aplicação, execute o seguinte comando no diretório do projeto:
 docker-compose up --build
 ```
 
-Isso vai construir as imagens, se necessário, e iniciar os containers. Acesse a aplicação através do navegador em http://localhost:3000 para ver o número de visitas, que é incrementado a cada recarga da página.
+## Acessando o Container do App via Bash
 
-Limpeza
+Para entrar no container do app e interagir com os arquivos ou executar comandos diretamente dentro do ambiente do container, use o seguinte comando:
+
+```
+docker exec -it app bash
+```
+
+Esse comando realiza o seguinte:
+
+	•	docker exec: Executa um comando em um container em execução.
+	•	-it: Combinação de -i e -t para interação interativa e alocação de um terminal tty, respectivamente.
+	•	app: Nome do serviço definido no seu docker-compose.yaml que corresponde ao container do app.
+	•	sh: O comando que você quer executar dentro do container, neste caso, iniciar o shell.
+
+Depois de executar este comando, você estará dentro do container e poderá navegar pelos diretórios, visualizar arquivos, editar configurações ou executar comandos de desenvolvimento.
+
+Para sair do bash, digite `exit`.
+
+## Limpeza
 
 Para parar e remover os containers, a rede criada e os volumes, execute o comando:
 
